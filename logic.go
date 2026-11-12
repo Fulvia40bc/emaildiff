@@ -210,7 +210,7 @@ func readWorksheetCells(f *zip.File, shared []string) ([]string, error) {
 func xlsxEmails(path string) ([]string, error) {
 	zr, err := zip.OpenReader(path)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("%s is not a readable .xlsx (zip) file: %w", filepath.Base(path), err)
 	}
 	defer zr.Close()
 	var shared []string
@@ -250,7 +250,7 @@ func loadFileEmails(path string) ([]string, error) {
 	default:
 		data, err := os.ReadFile(path)
 		if err != nil {
-			return nil, err
+			return nil, fmt.Errorf("could not read %s: %w", filepath.Base(path), err)
 		}
 		return extractEmails(string(data)), nil
 	}
