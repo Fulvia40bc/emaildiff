@@ -13,69 +13,69 @@ import (
 )
 
 const (
-	wmDestroy    = 0x0002
-	wmSize       = 0x0005
-	wmKeyDown    = 0x0100
-	wmCommand    = 0x0111
-	wmSetFocus   = 0x0007
-	wmDropFiles  = 0x0233
-	lbAddString  = 0x0180
-	lbReset      = 0x0184
-	lbGetCursel  = 0x0188
-	lbGetSelCnt  = 0x0190
-	lbGetSelItm  = 0x0191
-	bmGetCheck   = 0x00F0
-	enChange     = 0x0300
-	wsChild      = 0x40000000
-	wsVisible    = 0x10000000
-	wsBorder     = 0x00800000
-	wsVScroll    = 0x00200000
-	wsTabStop    = 0x00010000
-	wsOverlapped = 0x00CF0000
-	lbsNotify    = 0x0001
-	lbsMultiSel  = 0x0008
-	lbsNoIntH    = 0x0080
-	bsButton     = 0x00000000
-	bsCheck      = 0x00000002
-	bsAutoCheck  = 0x00000003
-	bsAutoRadio  = 0x00000009
+	wmDestroy     = 0x0002
+	wmSize        = 0x0005
+	wmKeyDown     = 0x0100
+	wmCommand     = 0x0111
+	wmSetFocus    = 0x0007
+	wmDropFiles   = 0x0233
+	lbAddString   = 0x0180
+	lbReset       = 0x0184
+	lbGetCursel   = 0x0188
+	lbGetSelCnt   = 0x0190
+	lbGetSelItm   = 0x0191
+	bmGetCheck    = 0x00F0
+	enChange      = 0x0300
+	wsChild       = 0x40000000
+	wsVisible     = 0x10000000
+	wsBorder      = 0x00800000
+	wsVScroll     = 0x00200000
+	wsTabStop     = 0x00010000
+	wsOverlapped  = 0x00CF0000
+	lbsNotify     = 0x0001
+	lbsMultiSel   = 0x0008
+	lbsNoIntH     = 0x0080
+	bsButton      = 0x00000000
+	bsCheck       = 0x00000002
+	bsAutoCheck   = 0x00000003
+	bsAutoRadio   = 0x00000009
 	esAutoVScroll = 0x00000040
-	gmemMoveable = 0x0002
-	cfText       = 1
-	cfUnicode    = 13
-	ofnMustExist = 0x1800
-	ofnOverwrite = 0x00000002
-	gwlpWndProc  = ^uintptr(3)
-	vkControl    = 0x11
-	vkV          = 0x56
-	tpmReturnCmd = 0x0100
-	tpmNonNotify = 0x0080
-	idLoadA      = 1
-	idPasteA     = 2
-	idLoadB      = 3
-	idPasteB     = 4
-	idAddToA     = 5
-	idRemoveSel  = 6
-	idSort       = 7
-	idCompare    = 8
-	idClear      = 9
-	idOptNoCase  = 10
-	idOptPlus    = 11
-	idOptDomain  = 12
-	idModeMiss   = 13
-	idModeOnlyA  = 14
-	idSaveReport = 15
-	idCopyMiss   = 16
-	idCopyReport = 17
-	idSaveSess   = 18
-	idLoadSess   = 19
-	idRecent     = 20
-	idFltA       = 21
-	idFltC       = 22
-	idFltB       = 23
-	idRecentBase = 100
-	clientW      = 1000
-	clientH      = 620
+	gmemMoveable  = 0x0002
+	cfText        = 1
+	cfUnicode     = 13
+	ofnMustExist  = 0x1800
+	ofnOverwrite  = 0x00000002
+	gwlpWndProc   = ^uintptr(3)
+	vkControl     = 0x11
+	vkV           = 0x56
+	tpmReturnCmd  = 0x0100
+	tpmNonNotify  = 0x0080
+	idLoadA       = 1
+	idPasteA      = 2
+	idLoadB       = 3
+	idPasteB      = 4
+	idAddToA      = 5
+	idRemoveSel   = 6
+	idSort        = 7
+	idCompare     = 8
+	idClear       = 9
+	idOptNoCase   = 10
+	idOptPlus     = 11
+	idOptDomain   = 12
+	idModeMiss    = 13
+	idModeOnlyA   = 14
+	idSaveReport  = 15
+	idCopyMiss    = 16
+	idCopyReport  = 17
+	idSaveSess    = 18
+	idLoadSess    = 19
+	idRecent      = 20
+	idFltA        = 21
+	idFltC        = 22
+	idFltB        = 23
+	idRecentBase  = 100
+	clientW       = 1000
+	clientH       = 620
 )
 
 var (
@@ -131,15 +131,15 @@ var (
 	btns                                   [15]uintptr
 	chkNoCase, chkPlus, chkDomain          uintptr
 	radMiss, radOnlyA                      uintptr
-	oldProc    = map[uintptr]uintptr{}
-	left, right = newSide(), newSide()
-	centerItems []string
-	dispL, dispC, dispR []string
-	fltL, fltC, fltB    string
-	centerMode          int
-	focusList           uintptr
-	recents             []string
-	opts                = normOptions{NoCase: true}
+	oldProc                                = map[uintptr]uintptr{}
+	left, right                            = newSide(), newSide()
+	centerItems                            []string
+	dispL, dispC, dispR                    []string
+	fltL, fltC, fltB                       string
+	centerMode                             int
+	focusList                              uintptr
+	recents                                []string
+	opts                                   = normOptions{NoCase: true}
 )
 
 type wndClassEx struct {
